@@ -34,15 +34,77 @@ h1{
     <div id="main">
     <?php
 
+        class Humano{
 
-    
+        }
+        class Animal{
+
+        }
+        class Professor extends Humano{
+
+        }
+    $anderson = new Humano;
+    $bob = new Animal;
+    $michele = new Professor;
+
+    if($anderson instanceof Humano){
+        echo "Anderson é um humano<br><hr>";
+    }
+    else
+    {
+        echo "Anderson não é um humano<br><hr>";
+    }
+
+    if($bob instanceof Humano){
+        echo "Bob é um humano<br><hr>";
+    }
+    else
+    {
+        echo "Bob não é um humano<br><hr>";
+    }
+
+    if($michele instanceof Professor){
+        echo "Michele é um/a professor/a<br><hr>";
+    }
+    else
+    {
+        echo "Michele não é um/a professor/a<br><hr>";
+    }
+
+    if($michele instanceof Humano){
+        echo "Michele é um/a humano/a<br><hr>";
+    }
+    else
+    {
+        echo "Michele não é um/a humano/a<br><hr>";
+    }
+    if($bob instanceof Professor){
+        echo "Bob é um professor<br><hr>";
+    }
+    else
+    {
+        echo "Bob não é um professor<br><hr>";
+    }
+
+
     
     ?>
      <br><br>
     
     <h2>
-        explanação
+        Explanação <hr>
+        Com o "instanceof" é possivel verificar se uma classe está instanciada
+        dirretamente ou se veio de alguma herança.Obs.: É retornado um booleano.
     </h2>
+    <pre>
+    if($bob instanceof Professor){
+        echo "Bob é um professor";
+    }
+    else
+    {
+        echo "Bob não é um professor";
+    } 
+    </pre>
     </div>
     
 </body>
