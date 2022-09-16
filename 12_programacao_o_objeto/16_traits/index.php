@@ -39,9 +39,9 @@ h1{
             }
         }
         trait Testando{
-            public $y = 1000;
-            public function traitTeste(){
-                echo "Este método é da trit testando<br>";
+            public $y = 1000; //prpriedade publica
+            public function traitTeste(){ //Método público
+                echo "Este método é da trait testando<br>";
             }
         }
         class Central{

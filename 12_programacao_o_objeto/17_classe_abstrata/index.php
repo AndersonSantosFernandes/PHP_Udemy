@@ -34,18 +34,31 @@ h1{
     <div id="main">
     <?php
         abstract class Teste{
-            public function testandoClasse(){
-                echo "Este método é de uma classe abstrata";
+            public static function testandoClasse(){
+                echo "Este método é de uma classe abstrata<br>";
             }
         }
 
-    
-    
+
+        Teste::testandoClasse();
+
+        class Nova extends Teste{
+            public function testeAbs(){
+                echo "Teste método abstrato <br>";
+            }
+        }
+
+        $n = new Nova;
+        $n->testeAbs();
+
     ?>
      <br><br>
     
     <h2>
-        explanação
+        Explanação <br>
+        As classes abstratas não podem ser instanciadas <br>
+        A classe abstrata pode ser chamada diretamente usando "Classe::método"
+
     </h2>
     </div>
     

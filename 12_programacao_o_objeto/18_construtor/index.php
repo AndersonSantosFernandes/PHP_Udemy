@@ -16,8 +16,8 @@ body{
     background-image: linear-gradient(purple, gray, purple) ;
 }
 div#main{
-    width: 500px;
-    height: 400px;
+    width: 700px;
+    height: 500px;
     margin: auto;
     padding: 20px;
     background-color: azure;
@@ -33,16 +33,46 @@ h1{
     <h1>Título</h1>
     <div id="main">
     <?php
-
-
-    
-    
+        class Car{
+            public $cor;
+            public $portas;
+            public $marca;
+            function __construct($cor, $portas, $marca){
+                $this->cor = $cor;
+                $this->portas = $portas;
+                $this->marca = $marca;
+            }
+        }
+        $ferrari = new Car("vermelha", 2, "ferrari");
+    echo "O carro é da marca $ferrari->marca, tem a cor $ferrari->cor e tem $ferrari->portas portas. <br>";
+    $parati = new Car("verde", 4, "VolksWagen");
+    echo "O carro é da marca $parati->marca, tem a cor $parati->cor e tem $parati->portas portas. <br>";    
     ?>
      <br><br>
     
     <h2>
-        explanação
+        Explanação <br>
+        Com um construtor pdemos passar parametros nas classes e depois inicializar um objeto diretamente
+        
     </h2>
+    <pre>
+        
+        class Car{
+            public $cor;
+            public $portas;
+            public $marca;
+            function __construct($cor, $portas, $marca){
+                $this->cor = $cor;
+                $this->portas = $portas;
+                $this->marca = $marca;
+            }
+        }
+        $ferrari = new Car("vermelha", 2, "ferrari");
+    echo "O carro é da marca $ferrari->marca, tem a cor $ferrari->cor e tem $ferrari->portas portas. <br>";
+    $parati = new Car("verde", 4, "VolksWagen");
+    echo "O carro é da marca $parati->marca, tem a cor $parati->cor e tem $parati->portas portas. <br>";    
+    
+        </pre>
     </div>
     
 </body>

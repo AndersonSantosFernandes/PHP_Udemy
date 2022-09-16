@@ -33,15 +33,15 @@ h1{
     <h1>Título</h1>
     <div id="main">
     <?php
-
-
     
     
+   
     ?>
      <br><br>
     
     <h2>
-        explanação
+   
+
     </h2>
     </div>
     
