@@ -1,18 +1,14 @@
 <?php
     include_once("templates/header.php");
-
-
     if(isset($_GET['id'])){
         $postId = $_GET['id'];
         $currentPost;
-
         foreach($posts as $post){
             if($post['id'] == $postId){
                 $currentPost = $post;
             }
         }
     }
-
 ?>
    <main id="post-container">
     <div class="content-container">
@@ -39,7 +35,6 @@
        Labore sit expedita dolorum dolorem molestias accusantium. Repellat placeat optio enim, ex recusandae inventore magni veritatis minus ullam quo nulla corrupti iure corporis doloremque vero, aliquid porro. Reiciendis, odit iste.
        Dolores placeat quam magnam perferendis, debitis tenetur saepe ipsa, beatae temporibus voluptate harum accusamus amet! Modi id expedita corporis? Iure rem deleniti illum suscipit accusamus repellendus, tenetur nemo accusantium consectetur?</p>
     </div>
-
     <aside id=nav-container>
         <h3 id="tag-title">Tags</h3>
         <ul id="tag-list">
@@ -47,17 +42,14 @@
                <li> <a href="#"><?= $tag ?></a> </li>
             <?php endforeach;?>
         </ul>
-        <h3 id="categories-title">Categorias</h3>
+            <h3 id="categories-title">Categorias</h3>
         <ul id="categories-list">
             <?php foreach($categories as $category):?>
                <li> <a href="#"><?= $category ?></a> </li>
             <?php endforeach;?> 
         </ul>
-
    </aside>
-
-   </main>
-   
+   </main>   
 <?php
     include_once("templates/footer.php");
 ?> 
