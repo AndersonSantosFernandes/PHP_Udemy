@@ -107,4 +107,7 @@
     .nav-link{
         margin-right: 25%;
     }
+    .show-phone{
+        display: none;
+    }
 }

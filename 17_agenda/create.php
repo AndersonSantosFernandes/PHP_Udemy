@@ -17,6 +17,10 @@
                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Digite o telefone" required>
             </div>
             <div class="form-group">
+                <label for="email">Telefone do contato</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Digite o e-mail" required>
+            </div>
+            <div class="form-group">
                 <label for="observations">Observações</label>
                 <textarea type="text" class="form-control" name="observations" id="observations" placeholder="Insira as observações" rows="3"></textarea>
             </div>

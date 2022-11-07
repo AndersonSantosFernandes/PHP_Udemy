@@ -10,18 +10,20 @@
            <table class="table" id="contacts-table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <!-- <th scope="col">#</th> -->
                     <th scope="col">Nome</th>
-                    <th scope="col">Telefone</th>
+                    <th class="show-phone" scope="col">Telefone</th>
+                    <th scope="col">Email</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($contacts as $contact): ?>
                     <tr>
-                        <td scope="row"><?= $contact['id'] ?></td>
+                        <!-- <td scope="row"><?php // echo $contact['id']; ?></td> -->
                         <td scope="row"><?= $contact['name'] ?></td>
-                        <td scope="row"><?= $contact['phone'] ?></td>
+                        <td class="show-phone" scope="row"><?= $contact['phone'] ?></td>
+                        <td scope="row"><?= $contact['email'] ?></td>
                         <td class="actions">
                             <a href="<?= $BASE_URL ?>show.php?id=<?= $contact['id'] ?>"><i class="fas fa-eye check-icon"></i></a>
                             <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact['id'] ?>"><i class="far fa-edit edit-icon"></i></a>

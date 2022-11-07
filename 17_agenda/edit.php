@@ -1,5 +1,5 @@
 <?php
-    include_once("templates/header.php");
+    include_once("templates/header.php"); 
 ?>
     
     <div class="container">
@@ -16,6 +16,10 @@
             <div class="form-group">
                 <label for="phone">Telefone do contato</label>
                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Digite o telefone" value="<?= $contact['phone'] ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail do contato</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Digite o telefone" value="<?= $contact['email'] ?>" required>
             </div>
             <div class="form-group">
                 <label for="observations">Observações</label>
