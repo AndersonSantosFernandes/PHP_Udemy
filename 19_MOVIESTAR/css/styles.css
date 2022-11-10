@@ -81,6 +81,39 @@
     padding: 40px;
 }
 
+/*login/ Register*/
+
+#auth-row{
+    justify-content: space-evenly; /*deixa os dois iten centralizados que estão lado a lado com margens equalizadas */
+}
+
+#login-container h2,
+#register-container h2{
+    text-align: center;
+    border-bottom: 2px solid #f5c518;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#login-container form,
+#register-container form{
+    max-width: 400px;
+    margin: 30px auto;
+}
+.card-btn{ /*para usar ao longo do projeto*/
+    color: #000;
+    background-color: #f5c518;
+    border: 2px solid #f5c518;
+    width: 100%;
+}
+.card-btn:hover{ /*para usar ao longo do projeto*/
+    background-color: transparent;
+    color:  #f5c518;
+    border-color: #f5c518;
+}
+
+
 /* Footer */
 
 #footer{
