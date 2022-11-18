@@ -1,3 +1,12 @@
+/*variaveis*/
+:root{
+    --cor1: #f5d018;
+    --cor2: purple;
+    --cor3: purple;
+    --cor4: purple;
+}
+
+
 /*navbar*/
 .navbar-brand{
     position: relative;
@@ -90,7 +99,7 @@
 #login-container h2,
 #register-container h2{
     text-align: center;
-    border-bottom: 2px solid #f5c518;
+    border-bottom: 2px solid var(--cor1);
     width: 200px;
     margin: 0 auto;
     padding: 10px;
@@ -103,14 +112,14 @@
 }
 .card-btn{ /*para usar ao longo do projeto*/
     color: #000;
-    background-color: #f5c518;
-    border: 2px solid #f5c518;
+    background-color: var(--cor1);
+    border: 2px solid var(--cor1);
     width: 100%;
 }
 .card-btn:hover{ /*para usar ao longo do projeto*/
     background-color: transparent;
-    color:  #f5c518;
-    border-color: #f5c518;
+    color:  var(--cor1);
+    border-color: var(--cor1);
 }
 
 
