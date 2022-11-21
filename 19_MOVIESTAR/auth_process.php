@@ -7,6 +7,9 @@
 
     $message = new Message($BASE_URL);
 
+    $userDao = new UserDAO($conn, $BASE_URL);
+
+
     //Resgata o tipo de formulário
     $type = filter_input(INPUT_POST, "type"); // filter_input-> função que filtra os dados inseridos maliciosamente pelo usuário
 
@@ -18,18 +21,53 @@
         $lastname = filter_input(INPUT_POST, "lastname");
         $email = filter_input(INPUT_POST, "email");
         $password = filter_input(INPUT_POST, "password");
-        $confirmparrword = filter_input(INPUT_POST, "confirmparrword");
+        $confirmparrword = filter_input(INPUT_POST, "confirmpassword");
 
         // Verificação de dados mínimos
         if($name && $lastname && $email && $password){
+           
+            // Verificar se as senhas batem
+            if($password == $confirmparrword){
+
+                // Verificar se o email ja está cadastrado
+                if($userDao->findByEmail($email) === false){
+                   
+                    $user = new User();
+
+                    // criação de token e senha
+                    $userToken = $user->generateToken();
+                    $finalPassword = $user->generatePassword($password);
+                    
+                    $user->name = $name;
+                    $user->lastname = $lastname;
+                    $user->email = $email;
+                    $user->password = $finalPassword;
+                    $user->token = $userToken;
+
+                    $auth = true;
+
+
+                    $userDao->create($user, $auth);
+                    
+                    // password_hash($password, PASSWORD_DEFAULT); 
+
+                }else{
+                    $message->setMessage("E-mail já cadastrado, tente outro.", "error", "back");     
+                }
+
+            }else{
+                $message->setMessage("As senhas não são iguais.", "error", "back");    
+            }
+
 
         }else{
             // Mensagem de erro
             $message->setMessage("Por favor, preencha todos os campos.", "error", "back");
+            // print_r($message);
         }
         
     }elseif($type === "login"){
-        echo "logando";
+        echo "Você está tentando se logar mas a função ainda não existe seu burro";
     }
 
 
