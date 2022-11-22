@@ -8,7 +8,7 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/" target="blank"><i class="fab fa-youtube"></i></a>
             </li>
         </ul>
     </div>

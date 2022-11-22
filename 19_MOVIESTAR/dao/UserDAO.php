@@ -50,10 +50,50 @@ class UserDAO implements UserDAOInterface{
 
 
         }
-        public function update(User $user){
+        public function update(User $user, $redirect = true){
+            $stmt = $this->conn->prepare("UPDATE users SET
+            name = :name,
+            lastname = :lastname,
+            email = :email,
+            image = :image,
+            bio = :bio,
+            token = :token
+            WHERE id = :id            
+            ");
 
+            $stmt->bindParam(":name", $user->name);
+            $stmt->bindParam(":lastname", $user->lastname);
+            $stmt->bindParam(":email", $user->email);
+            $stmt->bindParam(":image", $user->image);
+            $stmt->bindParam(":bio", $user->bio);
+            $stmt->bindParam(":token", $user->token);
+            $stmt->bindParam(":id", $user->id);
+
+            $stmt->execute();
+
+            if($redirect){
+                // Redireciona para o perfil do usuário
+                $this->message->setMessage("Dados atualizados com sucesso", "success", "editprofile.php");
+            }
         }
         public function verifyToken($protected = false){
+
+            if(!empty($_SESSION["token"])){
+                //pega o token da session
+                $token = $_SESSION["token"];
+
+                $user = $this->findByToken($token);
+                if($user){
+                    return $user;
+                }elseif($protected){
+                    // Redireciona usuário não autenticado
+                $this->message->setMessage("Falha na autenticação! Tente novamente", "error", "index.php");
+                }
+            }elseif($protected){
+                // Redireciona usuário não autenticado
+            $this->message->setMessage("Falha na autenticação! Tente novamente", "error", "index.php");
+          
+            }
 
         }
         public function setTokenToSession($token, $redirect = true){
@@ -66,6 +106,30 @@ class UserDAO implements UserDAOInterface{
             }
         }
         public function authenticateUser($email, $password){
+            $user = $this->findByEmail($email);
+
+            if($user){
+                // verificar se as senhas batem
+                if(password_verify($password, $user->password)){
+
+                    $token = $user->generateToken();
+
+                    $this->setTokenToSession($token, false);
+
+                    // Atualiza o token do usuário
+                    $user->token = $token;
+
+                    $this->update($user, false);
+
+                    return true;
+
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+
 
         }
         public function findByEmail($email){
@@ -78,6 +142,8 @@ class UserDAO implements UserDAOInterface{
             if($stmt->rowCount() > 0){
                 $data = $stmt->fetch();
                 $user = $this->buildUser($data);
+                return $user;
+
             }else{
                 return false;
             }
@@ -90,7 +156,30 @@ class UserDAO implements UserDAOInterface{
 
         }
         public function findByToken($token){
+            if($token != ""){
+            
+                $stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
+                $stmt->bindParam(":token", $token);
+                $stmt->execute();
+    
+                if($stmt->rowCount() > 0){
+                    $data = $stmt->fetch();
+                    $user = $this->buildUser($data);
+                    return $user;
+                }else{
+                    return false;
+                }
+    
+               } else{
+                return false;
+               }
+        }
 
+        public function destroyToken(){
+            //Remove o tokem da sessão
+            $_SESSION["token"] = "";
+            // Redireciona e apresenta a mensagem de final de sessão
+            $this->message->setMessage("Sessão encerrada! Até a próxima", "success", "index.php");
         }
         public function changePassword(User $user){
 

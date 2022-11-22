@@ -67,7 +67,22 @@
         }
         
     }elseif($type === "login"){
-        echo "Você está tentando se logar mas a função ainda não existe seu burro";
+        $email = filter_input(INPUT_POST, "email");
+        $password = filter_input(INPUT_POST, "password");
+
+        // Tenta autenticar usuário.
+        if($userDao->authenticateUser($email, $password)){
+             
+            $message->setMessage("Seja bem vindo!", "success", "editprofile.php"); 
+            
+
+        }else{
+            
+            $message->setMessage("Nome de usuário ou senha está incorreto.", "error", "back");
+
+        }
+    }else{
+        $message->setMessage("Estas informações nã condizem com o proposito.", "error", "index.php");
     }
 
 
