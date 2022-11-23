@@ -31,11 +31,10 @@
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="text" class="form-control" readonly name="email" id="email" placeholder="Digite o seu nome" value="<?= $userData->email ?>">
+              <input type="text" class="form-control disabled" readonly name="email" id="email" placeholder="Digite o seu nome" value="<?= $userData->email ?>">
             </div>
-            <input type="submit" value="Alterar">
-          </div>
-        
+            <input type="submit" class="btn card-btn" value="Alterar dados">
+          </div>        
         <div class="col-md-4">
           <div id="profile-image-container" style="background-image: url('<?= $BASE_URL ?>img/users/<?= $userData->image?>')"></div>
           <div class="form-group">
@@ -44,11 +43,29 @@
           </div>
           <div class="form-group">
               <label for="bio">Sobr você</label>
-              <textarea class="form-control" name="bio" id="bio" rows="5" placeholder="conte um pouco sobre você"></textarea>
+              <textarea class="form-control" name="bio" id="bio" rows="5" placeholder="Conte um pouco sobre você"></textarea>
             </div>
         </div>
         </div>
       </form>
+      <div class="row" id="change-password-container">
+        <div class="col-md-4">
+          <h2>Alteração de senha</h2>
+          <p class="page-description">Digite nova senha e confirme para alterar</p>
+          <form action="<?= $BASE_URL ?>user_process.php" method="POST">
+          <input type="hidden" name="type" value="changepassword">
+            <div class="form-group">
+              <label for="password">Senha</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Digite a nova senha" >
+            </div>
+            <div class="form-group">
+              <label for="confirmpassword">Senha</label>
+              <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Confirme a nova senha" >
+            </div>
+            <input type="submit" class="btn card-btn" value="Alterar senha">
+        </form>
+        </div>
+      </div>
     </div>
   </div>
 <?php
