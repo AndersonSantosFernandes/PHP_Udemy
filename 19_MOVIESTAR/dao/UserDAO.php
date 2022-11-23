@@ -46,9 +46,7 @@ class UserDAO implements UserDAOInterface{
                 //autenticar usuário caso  auth seja true
                 if($authUser){
                     $this->setTokenToSession($user->token);
-                }    
-
-
+                } 
         }
         public function update(User $user, $redirect = true){
             $stmt = $this->conn->prepare("UPDATE users SET
