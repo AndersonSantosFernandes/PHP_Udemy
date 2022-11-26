@@ -10,7 +10,7 @@
   $fullName = $user->getFulName($userData);
 
   if($userData->image == ""){
-    $userData->image = "user.png";
+    $userData->image = "user1.png";
   }
 ?>
   <div id="main-container" class="container-fluid">
