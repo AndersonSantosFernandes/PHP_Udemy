@@ -1,48 +1,87 @@
 <?php
-    require_once("globals.php");
-    require_once("db.php");
-    require_once("models/User.php");
-    require_once("models/Message.php");
-    require_once("dao/UserDAO.php");
+require_once("globals.php");
+require_once("db.php");
+require_once("models/User.php");
+require_once("models/Message.php");
+require_once("dao/UserDAO.php");
 
-    $message = new Message($BASE_URL);
+$message = new Message($BASE_URL);
 
-    $userDao = new UserDAO($conn, $BASE_URL);
+$userDao = new UserDAO($conn, $BASE_URL);
 
 
-    //Resgata o tipo de formulário
-    $type = filter_input(INPUT_POST, "type");
+//Resgata o tipo de formulário
+$type = filter_input(INPUT_POST, "type");
 
-     //Atualizar usuário
-     if($type === "update"){
+//Atualizar usuário
+if ($type === "update") {
 
-        $userData = $userDao->verifyToken();
-        
-        // Receber dados do usuário
-        $name = filter_input(INPUT_POST,"name");
-        $lastname = filter_input(INPUT_POST,"lastname");
-        $email = filter_input(INPUT_POST,"email");
-        $bio = filter_input(INPUT_POST,"bio");
+    $userData = $userDao->verifyToken();
 
-        //criar um novo objeto de usuário
-        $user = new User();
+    // Receber dados do usuário
+    $name = filter_input(INPUT_POST, "name");
+    $lastname = filter_input(INPUT_POST, "lastname");
+    $email = filter_input(INPUT_POST, "email");
+    $bio = filter_input(INPUT_POST, "bio");
 
-        // Preencher os dados
-        $userData->name = $name;
-        $userData->lastname = $lastname;
-        $userData->email = $email;
-        $userData->bio = $bio;
+    //criar um novo objeto de usuário
+    $user = new User();
 
-        $userDao->update($userData);
+    // Preencher os dados
+    $userData->name = $name;
+    $userData->lastname = $lastname;
+    $userData->email = $email;
+    $userData->bio = $bio;
 
-        // Atualizar senha
-    }elseif($type === "changepassword"){
+    //Upload de imagem 
+    if (isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])) { // Se estiver vindo um nome e um arquivo a enviar, o bloco é executado
 
-    }else{
-        $message->setMessage("Estas informações nã condizem com o proposito.", "error", "index.php");
+        $image = $_FILES["image"];
+        $imageTypes = ["image/jpeg", "image/jpg", "image/png"]; // Formatos de imagens aceitos
+        $jpgArray = ["image/jpeg", "image/jpg"];
+
+       
+        //Checar tipo de imagem 
+        if (in_array($image["type"], $imageTypes)) {
+
+            //Checar se é jpg
+            if (in_array($image, $jpgArray)) {
+
+                $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+                
+                //imagem é png
+            } else {
+                $imageFile = imagecreatefrompng($image["tmp_name"]);
+                
+            }
+
+            // Gerando nome para imagem 
+            $imageName = $user->imageGenerateName();
+            
+            
+
+            imagejpeg($imageFile, "./img/users/" . $imageName, 100);
+
+            $userData->image = $imageName;
+
+        } else {
+            // Se aimagem não for válida, direciona para pagina anterior
+            $message->setMessage("Arquivos aceitos: jpeg, jpg e png.", "error", "back");
+        }
+
     }
 
+    $userDao->update($userData);
+
+
+    // Atualizar senha
+} elseif ($type === "changepassword") {
+
+} else {
+    $message->setMessage("Estas informações nã condizem com o proposito.", "error", "index.php");
+}
 
 
 
-    ?>
+
+?>
