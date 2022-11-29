@@ -91,7 +91,7 @@ $userData = $userDao->verifyToken(false);
    
     <?php if (!empty($flassMessage['msg'])): ?>
     <div class="msg-container">
-        <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?></p>
+        <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?>  </p>
     </div>
     <?php endif; ?>
 
