@@ -9,6 +9,7 @@ require_once("dao/MovieDAO.php");
 
 $message = new Message($BASE_URL);
 $userDao = new UserDAO($conn, $BASE_URL);
+$movieDao = new MovieDAO($conn, $BASE_URL);
 
 //Resgata o tipo de formulário
 $type = filter_input(INPUT_POST, "type"); // filter_input-> função que filtra os dados inseridos maliciosamente pelo usuário
@@ -33,6 +34,7 @@ if ($type === "create") {
         $movie->trailer = $trailer;
         $movie->category = $category;
         $movie->length = $length;
+        $movie->users_id = $userData->id;
 
         //upload de imagem do filme
         if (isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])) { //verifica se tem imagem vindo por post e o nome da mesma
@@ -62,10 +64,7 @@ if ($type === "create") {
 
         }
 
-        print_r($_POST);
-        echo "<br>";
-        print_r($_FILES);
-        exit;
+        
         $movieDao->create($movie);
 
     } else {
