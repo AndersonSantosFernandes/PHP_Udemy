@@ -16,7 +16,7 @@ $type = filter_input(INPUT_POST, "type");
 //Atualizar usuário
 if ($type === "update") {
 
-    $userData = $userDao->verifyToken();
+    $userData = $userDao->verifyToken(); 
 
     // Receber dados do usuário
     $name = filter_input(INPUT_POST, "name");
@@ -45,21 +45,19 @@ if ($type === "update") {
         if (in_array($image["type"], $imageTypes)) {
 
             //Checar se é jpg
-            if (in_array($image, $jpgArray)) {
+            if (in_array($image["type"], $jpgArray)) {
 
                 $imageFile = imagecreatefromjpeg($image["tmp_name"]);
                 
                 //imagem é png
             } else {
                 $imageFile = imagecreatefrompng($image["tmp_name"]);
-                
+
             }
 
             // Gerando nome para imagem 
             $imageName = $user->imageGenerateName();
             
-            
-
             imagejpeg($imageFile, "./img/users/" . $imageName, 100);
 
             $userData->image = $imageName;

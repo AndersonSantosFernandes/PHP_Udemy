@@ -7,10 +7,10 @@ include_once("url.php");
 
 $data = $_POST;
 
-if(!empty($data)){ //Se a variável $data não estiver vazia executa o primeiro bloco de código.
+if (!empty($data)) { //Se a variável $data não estiver vazia executa o primeiro bloco de código.
 
-//criar contato
-    if($data["type"] === "create"){//Criar um novo contato.
+    //criar contato
+    if ($data["type"] === "create") { //Criar um novo contato.
         $name = $data["name"];
         $phone = $data["phone"];
         $email = $data["email"];
@@ -24,19 +24,18 @@ if(!empty($data)){ //Se a variável $data não estiver vazia executa o primeiro 
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":observation", $observations);
 
-        try{
+        try {
             $stmt->execute();
             $_SESSION["msg"] = "Contato salvo com sucesso!";
             // $_SESSION["msg"] = "<script>
             //                     window.alert('Contato salvo com sucesso');
             //                     </script>";
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             //erro na conexao
             $error = $e->getMessage();
             echo "Erro: $error";
-        }        
-    }
-    elseif($data["type"] === "edit"){//Edição do contato selecionado
+        }
+    } elseif ($data["type"] === "edit") { //Edição do contato selecionado
         $name = $data["name"];
         $phone = $data["phone"];
         $email = $data["email"];
@@ -55,16 +54,19 @@ if(!empty($data)){ //Se a variável $data não estiver vazia executa o primeiro 
         $stmt->bindParam(":observation", $observations);
         $stmt->bindParam(":id", $id);
 
-        try{
+        try {
             $stmt->execute();
             $_SESSION["msg"] = "Contato editado com sucesso!";
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             //erro na conexao
             $error = $e->getMessage();
             echo "Erro: $error";
-        }        
-    } elseif($data["type"] === "delete"){//Deletar o contato selecionado
+        }
+    } elseif ($data["type"] === "delete") { //Deletar o contato selecionado
         $id = $data['id'];
+
+
+
 
         $query = "DELETE FROM contacts WHERE id = :id";
         $stmt = $conn->prepare($query);
@@ -84,24 +86,20 @@ if(!empty($data)){ //Se a variável $data não estiver vazia executa o primeiro 
     //Redirect home.
     header("location:" . $_BASE_URL . "../index.php");
 
-}
-else
-{
+} else {
     $id;
-    if(!empty($_GET)){  
+    if (!empty($_GET)) {
         $id = $_GET["id"];
     }
     //retorna todos contatos
-    if(!empty($id)){  //Se pelo GET vier um id será retornado apenas uma linha
+    if (!empty($id)) { //Se pelo GET vier um id será retornado apenas uma linha
         $query = "SELECT * FROM contacts WHERE id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $contact = $stmt->fetch();
-    }
-    else
-    { 
-    //retorna todos contatos caso o GET esteja vazio.
+    } else {
+        //retorna todos contatos caso o GET esteja vazio.
         $contacts = [];
 
         $query = "SELECT * FROM contacts";
@@ -117,3 +115,12 @@ else
 $conn = null;
 
 ?>
+
+<!-- <form action="" method="POST">
+    <div class="form-control">
+        <input type="hidden" name="type" value="delete">
+        <label for="check">Marque para confirmar</label>
+        <input type="checkbox" name="check" id="">
+        <input type="submit" value="Processar">
+    </div>
+</form> -->

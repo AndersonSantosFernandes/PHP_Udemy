@@ -1,26 +1,28 @@
 <?php
-    include_once("templates/header.php");
-?>     
-    <div class="container">
-        <?php if(isset($printMsg) && $printMsg != ''):?>
-            <p id="msg"> <?= $printMsg ?> </p>
-        <?php endif; ?>
-        <h1 id="main-title">Minha agenda</h1>
-         <?php if(count($contacts) > 0 ):?>
-           <table class="table" id="contacts-table">
-            <thead>
-                <tr>
-                    <!-- <th scope="col">#</th> -->
-                    <th scope="col">Nome</th>
-                    <th class="show-phone" scope="col">Telefone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($contacts as $contact): ?>
-                    <tr>
-                        <!-- <td scope="row"><?php // echo $contact['id']; ?></td> -->
+include_once("templates/header.php");
+?>
+<div class="container">
+    <?php if (isset($printMsg) && $printMsg != ''): ?>
+    <p id="msg">
+        <?= $printMsg ?>
+    </p>
+    <?php endif; ?>
+    <h1 id="main-title">Minha agenda</h1>
+    <?php if (count($contacts) > 0): ?>
+    <table class="table" id="contacts-table">
+        <thead>
+            <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Nome</th>
+                <th class="show-phone" scope="col">Telefone</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($contacts as $contact): ?>
+            <tr>
+                <!-- <td scope="row"><?php // echo $contact['id']; ?></td> -->
                         <td scope="row"><?= $contact['name'] ?></td>
                         <td class="show-phone" scope="row"><?= $contact['phone'] ?></td>
                         <td scope="row"><?= $contact['email'] ?></td>
@@ -34,13 +36,13 @@
                             </form>
                         </td>
                     </tr>
-                <?php endforeach;?>    
+                <?php endforeach; ?>    
             </tbody>
            </table>
-        <?php else:?>
+        <?php else: ?>
             <p id="empty-list-text">Ainda não há contatos <a href="<?= $BASE_URL ?>create.php">Clique aqui para adicionar</a>.</p>    
-        <?php endif;?>
+        <?php endif; ?>
     </div>
 <?php
-    include_once("templates/header.php");
+include_once("templates/header.php");
 ?>
