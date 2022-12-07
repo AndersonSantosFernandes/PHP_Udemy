@@ -20,7 +20,7 @@ class Message{
         else
         {
             header("Location: " . $_SERVER["HTTP_REFERER"]);// LEVA PARA ULTIMA URL ACESSADA CASO A SOLICITAÇÃO NÃO SEJA ATENDIDA.
-        }
+        } 
     }
     public function getMessage(){
         

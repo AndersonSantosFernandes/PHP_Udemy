@@ -9,8 +9,8 @@ $message = new Message($BASE_URL);
 
 $flassMessage = $message->getMessage();
 
-if(!empty($flassMessage['msg'])){
-  $message->clearMessage(); 
+if (!empty($flassMessage['msg'])) {
+    $message->clearMessage();
 }
 
 $userDao = new UserDAO($conn, $BASE_URL);
@@ -60,7 +60,7 @@ $userData = $userDao->verifyToken(false);
             </form>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav">
-                   <?php if($userData):?>
+                    <?php if ($userData): ?>
                     <li class="nav-item">
                         <a href="<?= $BASE_URL ?>newmovie.php" class="nav-link">
                             <i class="far fa-plus-square"></i>Incluir filme
@@ -70,29 +70,28 @@ $userData = $userDao->verifyToken(false);
                         <a href="<?= $BASE_URL ?>dashboard.php" class="nav-link">Meus filmes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= $BASE_URL ?>editprofile.php" class="nav-link bold"><?= $userData->name ?></a>
+                        <a href="<?= $BASE_URL ?>editprofile.php" class="nav-link bold">
+                            <?= $userData->name ?>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="<?= $BASE_URL ?>logout.php" class="nav-link">Sair</a>
                     </li>
-                   <?php else: ?>
+                    <?php else: ?>
                     <li class="nav-item">
                         <a href="<?= $BASE_URL ?>auth.php" class="nav-link">Entrar / Cadastrar</a>
                     </li>
-                   <?php endif; ?>
-                
-                    
-                
+                    <?php endif; ?>
 
                 </ul>
             </div>
         </nav>
     </header>
-   
+
     <?php if (!empty($flassMessage['msg'])): ?>
     <div class="msg-container">
-        <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?>  </p>
+        <p class="msg <?= $flassMessage["type"] ?>">
+            <?= $flassMessage["msg"] ?>
+        </p>
     </div>
     <?php endif; ?>
-
-   
