@@ -15,7 +15,11 @@ if ($userData->image == "") {
 ?>
 <div id="main-container" class="container-fluid">
 <h2 class="section-titles">Editar dados dos filmes</h2>
+
 </div>
+
+
+
 <?php
 require_once("templates/footer.php");
 ?>

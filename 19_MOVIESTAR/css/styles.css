@@ -242,8 +242,9 @@ height: 3rem;
     margin-top: 60px;
 }
 
-.edit-prifile-page .cerd-btn,
-#add-movie-container .card-btn{
+.edit-prifile-page .card-btn,
+#add-movie-container .card-btn,
+#review-form .card-btn{
     width: auto;
 }
 

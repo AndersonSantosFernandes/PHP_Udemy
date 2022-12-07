@@ -64,6 +64,12 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
       </tbody>
     </table>
   </div>
+  
+  
+  
+  
+  
+
 
 </div>
 <?php
