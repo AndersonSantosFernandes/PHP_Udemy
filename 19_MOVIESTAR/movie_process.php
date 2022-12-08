@@ -73,7 +73,7 @@ if ($type === "create") {
 
 } else {
 
-    $message->setMessage("Estas informações nã condizem com o proposito.", "error", "index.php");
+    $message->setMessage("Estas informações não condizem com o proposito.", "error", "index.php");
 
 }
 
