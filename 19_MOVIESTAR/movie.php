@@ -8,29 +8,36 @@ $id = filter_input(INPUT_GET, "id");
 
 $movie;
 
+
+
 $movieDao = new MovieDAO($conn, $BASE_URL);
 
-if(empty($id)){
+
+
+
+
+
+if (empty($id)) {
     $message->setMessage("Filme não encontrado.", "error", "index.php");
-}else{
+} else {
     $movie = $movieDao->findById($id);
 
     // verificar a existencia de um filme
-    if(!$movie){
+    if (!$movie) {
         $message->setMessage("Filme não encontrado.", "error", "index.php");
     }
 }
 
 //Checar se o filme tem imagem
-if($movie->image == ""){
+if ($movie->image == "") {
     $movie->image = "movie_cover.jpg";
 }
 //checar se o filme é do usuário
 
 $userOwnsMovie = false;
 
-if (!empty($userData)){
-    if($userData->id === $movie->id){
+if (!empty($userData)) {
+    if ($userData->id === $movie->id) {
         $userOwnsMovie = true;
     }
 
@@ -53,16 +60,18 @@ if (!empty($userData)){
                 <span class="pipe"></span>
                 <span><i class="fas fa-star">9</i></span>
             </p>
-            <iframe src="<?= $movie->trailer ?>" width="560" height="315" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encryted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <p>
-                <?= $movie->description ?>
-            </p>
+<!-- A linha abaixo está dando defeito no código onde some tudo dessa linha para baixo
+Apagando esse trecho volta ao normal mas o vídeo não toca -->
+            <?= $movie->trailer  ?>
+            
+
+                <p>
+                    <?= $movie->description ?>
+                </p>
         </div>
         <div class="col-md-4">
             <div class="movie-image-container"
-                style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image?>')">
+                style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image ?>')">
             </div>
 
 
@@ -95,32 +104,59 @@ if (!empty($userData)){
                     </div>
                     <div class="form-group">
                         <label for="review">Seu comentário</label>
-                        <textarea name="review" id="review" rows="3" class="form-control" placeholder="O que achou do filme?"></textarea>
+                        <textarea name="review" id="review" rows="3" class="form-control"
+                            placeholder="O que achou do filme?"></textarea>
                     </div>
                     <input type="submit" class="btn card-btn" value="Enviar comentário">
                 </form>
             </div>
-        </div>
-        <!-- Comentários -->
-        <div class="col-md-12 review">
-            <div class="row">
-                <div class="col-md-1">
-                    <div class="profile-image-container review-image" style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
-                </div>
-                <div class="col-md-9 author-details-container">
-                    <h4 class="author-name">
-                        <a href="#">Testando</a>
-                    </h4>
-                    <p><i class="fas fa-star"></i>9</p>
-                </div>
-                <div class="col-md-12">
-                    <p class="comment-title">Comentário:</p>
-                    <p>Este é o comentário do usuário</p>
+            <!-- Comentários -->
+            <div class="col-md-12 review">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="profile-image-container review-image"
+                            style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
+                    </div>
+                    <div class="col-md-9 author-details-container">
+                        <h4 class="author-name">
+                            <a href="#">Testando</a>
+                        </h4>
+                        <p><i class="fas fa-star"></i>9</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="comment-title">Comentário:</p>
+                        <p>Este é o comentário do usuário</p>
+                    </div>
+
                 </div>
 
             </div>
 
+            <!-- Comentários -->
+            <div class="col-md-12 review">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="profile-image-container review-image"
+                            style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
+                    </div>
+                    <div class="col-md-9 author-details-container">
+                        <h4 class="author-name">
+                            <a href="#">Testando</a>
+                        </h4>
+                        <p><i class="fas fa-star"></i>9</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="comment-title">Comentário:</p>
+                        <p>Este é o comentário do usuário</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
+
     </div>
 </div>
 <?php
