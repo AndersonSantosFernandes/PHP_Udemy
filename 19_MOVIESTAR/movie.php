@@ -40,13 +40,11 @@ if (!empty($userData)) {
     if ($userData->id === $movie->id) {
         $userOwnsMovie = true;
     }
-
 }
-
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">
-        <div class="offset-md1 col-md-6 movie-container">
+        <div class="offset-md-1 col-md-6 movie-container">
 
             <h1 class="page-title">
                 <?= $movie->title ?>
@@ -60,21 +58,14 @@ if (!empty($userData)) {
                 <span class="pipe"></span>
                 <span><i class="fas fa-star">9</i></span>
             </p>
-<!-- A linha abaixo está dando defeito no código onde some tudo dessa linha para baixo
-Apagando esse trecho volta ao normal mas o vídeo não toca -->
-            <?= $movie->trailer  ?>
-            
-
+            <?= $movie->trailer ?>
                 <p>
                     <?= $movie->description ?>
                 </p>
         </div>
         <div class="col-md-4">
             <div class="movie-image-container"
-                style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image ?>')">
-            </div>
-
-
+                style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image ?>')"></div>
         </div>
         <div class="offset-md-1 col-md-10" id="reviews-container">
             <h3 id="reviews-title">Avaliações:</h3>
@@ -127,36 +118,9 @@ Apagando esse trecho volta ao normal mas o vídeo não toca -->
                         <p class="comment-title">Comentário:</p>
                         <p>Este é o comentário do usuário</p>
                     </div>
-
                 </div>
-
             </div>
-
-            <!-- Comentários -->
-            <div class="col-md-12 review">
-                <div class="row">
-                    <div class="col-md-1">
-                        <div class="profile-image-container review-image"
-                            style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
-                    </div>
-                    <div class="col-md-9 author-details-container">
-                        <h4 class="author-name">
-                            <a href="#">Testando</a>
-                        </h4>
-                        <p><i class="fas fa-star"></i>9</p>
-                    </div>
-                    <div class="col-md-12">
-                        <p class="comment-title">Comentário:</p>
-                        <p>Este é o comentário do usuário</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-
         </div>
-
     </div>
 </div>
 <?php

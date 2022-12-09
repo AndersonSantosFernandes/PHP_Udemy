@@ -14,6 +14,7 @@ $artesMarciaisMovies = $movieDao->getMoviesByCategory("Artes Marciais");
 $DramaMovies = $movieDao->getMoviesByCategory("Drama");
 $FiccaoMovies = $movieDao->getMoviesByCategory("Ficção");
 $corridasMovies = $movieDao->getMoviesByCategory("Corridas");
+$comediaMovies = $movieDao->getMoviesByCategory("Comédia");
 
 ?>
 <div id="main-container" class="container-fluid">
@@ -98,6 +99,18 @@ $corridasMovies = $movieDao->getMoviesByCategory("Corridas");
     <?php require("templates/movie_card.php") ?>
     <?php endforeach; ?>
     <?php if (count($corridasMovies) === 0): ?>
+    <p class="empty-list">Ainda nã há filmes cadastrados</p>
+    <?php endif; ?>
+  </div>
+ 
+  <h2 class="section-titles">Comédia</h2>
+  <p class="section-description">Veja os filmes de Comédia</p>
+  <div class="movies-container">
+
+    <?php foreach ($comediaMovies as $movie): ?>
+    <?php require("templates/movie_card.php") ?>
+    <?php endforeach; ?>
+    <?php if (count($comediaMovies) === 0): ?>
     <p class="empty-list">Ainda nã há filmes cadastrados</p>
     <?php endif; ?>
   </div>
