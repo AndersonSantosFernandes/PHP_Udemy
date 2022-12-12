@@ -71,7 +71,33 @@ if ($type === "create") {
         $message->setMessage("Insira ao menos título, descrição e categoria paara inserir informações.", "error", "back");
     }
 
-} else {
+} elseif($type === "delete"){
+
+    // Recebe dados do form
+    $id = filter_input(INPUT_POST, "id");
+    
+
+    //verificar se o usuário é dono do filme
+    $movie = $movieDao->findById($id);
+
+    if($movie){
+        if($movie->users_id === $userData->id){
+
+            $movieDao->destroy($movie->id);
+
+        }else{
+            $message->setMessage("Estas informações não condizem com o proposito.", "error", "index.php");
+
+        }
+
+    }else{
+        $message->setMessage("Estas informações não condizem com o proposito.", "error", "index.php");
+
+    }
+
+
+
+}else {
 
     $message->setMessage("Estas informações não condizem com o proposito.", "error", "index.php");
 

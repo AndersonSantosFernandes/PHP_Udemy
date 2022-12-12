@@ -8,14 +8,7 @@ $id = filter_input(INPUT_GET, "id");
 
 $movie;
 
-
-
 $movieDao = new MovieDAO($conn, $BASE_URL);
-
-
-
-
-
 
 if (empty($id)) {
     $message->setMessage("Filme não encontrado.", "error", "index.php");
@@ -41,6 +34,7 @@ if (!empty($userData)) {
         $userOwnsMovie = true;
     }
 }
+$alreadyReviewed = false;
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">
@@ -70,7 +64,8 @@ if (!empty($userData)) {
         <div class="offset-md-1 col-md-10" id="reviews-container">
             <h3 id="reviews-title">Avaliações:</h3>
             <!-- Verifica se  habilita a review para o usuário ou não -->
-
+            <?php if(!empty($userData) && !$userOwnsMovie && $alreadyReviewed): ?>
+                
             <div class="col-md-12" id="reviews-form-container">
                 <h4>Envie sua avaliação</h4>
                 <p class="page-description">Preencha o formulário com a nota e o comentário sobre o filme</p>
@@ -101,12 +96,13 @@ if (!empty($userData)) {
                     <input type="submit" class="btn card-btn" value="Enviar comentário">
                 </form>
             </div>
+            <?php endif; ?>
             <!-- Comentários -->
             <div class="col-md-12 review">
                 <div class="row">
                     <div class="col-md-1">
                         <div class="profile-image-container review-image"
-                            style="background-image: url('<?= $BASE_URL ?>img/users/user.png')"></div>
+                            style="background-image: url('<?= $BASE_URL ?>img/users/user1.png')"></div>
                     </div>
                     <div class="col-md-9 author-details-container">
                         <h4 class="author-name">
