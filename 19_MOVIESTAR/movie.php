@@ -71,7 +71,7 @@ if (!empty($userData)) {
             <h3 id="reviews-title">Avaliações:</h3>
             <!-- Verifica se  habilita a review para o usuário ou não -->
 
-            <div class="col-md-12" id="reviews-container">
+            <div class="col-md-12" id="reviews-form-container">
                 <h4>Envie sua avaliação</h4>
                 <p class="page-description">Preencha o formulário com a nota e o comentário sobre o filme</p>
                 <form action="<?= $BASE_URL ?>review_process.php" id="review-form" method="POST">

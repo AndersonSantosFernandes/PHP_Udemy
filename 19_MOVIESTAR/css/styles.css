@@ -219,14 +219,19 @@ height: 3rem;
 
 /*edit profile*/
 
-#profile-image-container{
+#profile-image-container,
+.profile-image-container{
     width: 150px;
     height: 150px;
     border: 6px solid #f5c518;
-    border-radius: 45px;
+    border-radius: 100%;
     background-size: cover;
     background-position: center;
     margin: 15px auto;
+}
+.profile-image-container{
+    width: 90px;
+    height: 90px;
 }
 
 .page-description{
@@ -247,6 +252,54 @@ height: 3rem;
 #review-form .card-btn{
     width: auto;
 }
+/*Movie*/
+.movie-container{
+    text-align: center;
+}
+.movie-details{
+    margin: 25px 0;
+}
+.pipe{
+    border: 1px solid #333;
+    margin:0 10px;
+}
+.reviews-title{
+    margin-bottom: 25px;
+}
+#reviews-form-container{
+    background-color: #333;
+    padding: 20px;
+}
+#reviews-form-container select,
+#reviews-form-container textarea{
+ width: 50%;
+}
+#reviews-container{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 4px solid #f5c518;
+}
+.review{
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+.author-details-container{
+    padding-top: 20px;
+}
+.author-name a{
+    color: #f5c518;
+}
+.comment-title{
+    color: #999;
+}
+
+
+
+
+
+
+
+
 
 
 /* Dashboard */
