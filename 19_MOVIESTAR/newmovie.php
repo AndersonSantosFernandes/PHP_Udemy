@@ -18,7 +18,7 @@ $userData = $userDao->verifyToken(true);
 
       <div class="form-group">
         <label for="title">Título</label>
-        <input type="text" name="title" id="title" class="form-control" placeholder="Digite o titulo do filme">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Digite o título do filme">
       </div>
 
       <div class="form-group">
@@ -47,12 +47,12 @@ $userData = $userDao->verifyToken(true);
 
       <div class="form-group">
         <label for="trailer">Trailer</label>
-        <input type="text" name="trailer" id="trailer" class="form-control" placeholder="Insila i link do triler ">
+        <input type="text" name="trailer" id="trailer" class="form-control" placeholder="Insira o link do trailer ">
       </div>
 
       <div class="form-group">
         <label for="trailerdescription">Descrição</label>
-       <textarea name="description" id="description" rows="5" class="form-control" placeholder="Resenha do filme">
+       <textarea name="description" id="description"  class="form-control" placeholder="Resenha do filme">
         
       </textarea>
       </div>
