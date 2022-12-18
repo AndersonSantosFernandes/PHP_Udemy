@@ -448,3 +448,39 @@ background-color: #333;
 #footer-links-container{
     margin: 30px 0;
 }
+
+/*Modal*/
+#deletar form{
+    width: 300px;
+    height: 150px;
+    border: 2px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 17%;
+    left: 35%;
+    background-color: #333;
+    border-radius: 5px;
+}
+#deletar form p{
+    background-color: #f5c518;
+    padding: 8px 3px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+#deletar form .confirm-delete{
+    background-color: rgb(132, 243, 88);
+    width: 70px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#deletar form .cancel-delete{
+    background-color: rgb(247, 72, 72);
+    width: 70px;
+    padding: 5px;
+    border-radius: 5px;
+}

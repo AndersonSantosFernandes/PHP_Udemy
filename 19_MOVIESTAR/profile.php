@@ -21,9 +21,7 @@ if (empty($id)) {
     } else {
         $message->setMessage("Usuário não encontrado.", "error", "index.php");
     }
-
 } else {
-
     $userData = $userDao->findById($id);
 
     // Se não encontrar usuário.
@@ -36,13 +34,9 @@ $fullName = $user->getFulName($userData);
 if ($userData->image == "") {
     $userData->image = "user1.png";
 }
-
 // resgatar filmes de detrminado usuário
 $userMovies = $movieDao->getMoviesByUserId($id);
 ?>
-
-
-
 <div id="main-container" class="container-fluid">
     <div class="col-md-8 offset-md-2">
         <div class="row profile-container">

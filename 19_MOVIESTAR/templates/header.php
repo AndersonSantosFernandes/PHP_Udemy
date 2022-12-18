@@ -37,6 +37,8 @@ $userData = $userDao->verifyToken(false);
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Css do projeto-->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Script modal -->
+    <script src="script/jsMain.js"></script>
 </head>
 
 <body>
