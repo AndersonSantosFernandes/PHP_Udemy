@@ -32,17 +32,22 @@ if ($movie->image == "") {
 $userOwnsMovie = false;
 
 if (!empty($userData)) {
+
     if ($userData->id === $movie->users_id) {
         $userOwnsMovie = true;
     }
+
+    //Resgatar as reviews do filme
+    $alreadyReviewed = $reviewDao->hasAlreadyReview($id, $userData->id);
+
 }
 // Resgatar as reviews do filme
 
 $movieReviews = $reviewDao->getMoviesReview($id);
 
+// $alreadyReviewed = false;
 
 
-$alreadyReviewed = true;
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">
