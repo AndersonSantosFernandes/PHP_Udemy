@@ -1,12 +1,11 @@
-function showDelete(vlrid){
-var show = window.document.getElementById('deletar')
-show.innerHTML=`
+function showDelete(vlrid) {
+    var show = window.document.getElementById('deletar')
+    show.innerHTML = `
 
-<form action="movie_process.php" method="POST">
+    <form action="movie_process.php" method="POST">
+        <p class="msg-modal">Deseja realmente apagar o registro?</p>          
+        <p style="color: red " class="null">A ação é irreversível</p>
 
-        <p class="msg-modal">Deseja realmente apagar o registro?</p>
-            <hr>
-            <br>
         <input type="hidden" name="type" value="delete">
         <input type="hidden" name="id" value="${vlrid}">
         <input type="submit" value="Deletar" class="confirm-delete">
@@ -14,11 +13,8 @@ show.innerHTML=`
 
     </form>
 `
-
-
 }
-function cancelaDelete(){
+function cancelaDelete() {
     var hiden = window.document.getElementById('deletar');
-
-    hiden.innerHTML=``
+    hiden.innerHTML = ``
 }

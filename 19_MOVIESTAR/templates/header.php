@@ -40,7 +40,6 @@ $userData = $userDao->verifyToken(false);
     <!-- Script modal -->
     <script src="script/jsMain.js"></script>
 </head>
-
 <body>
     <header>
         <nav id="main-navbar" class="navbar navbar-expand-lg">

@@ -53,7 +53,7 @@
 }
 
 .bold{
-    font-weight: bold;/*para usar no projeto todo onde quiser letraas em negrito é só usar esta classe*/
+    font-weight: bold;/*para usar no projeto todo onde quiser letras em negrito é só usar esta classe*/
 }
 
 .msg-container{
@@ -461,26 +461,35 @@ background-color: #333;
     background-color: #333;
     border-radius: 5px;
 }
-#deletar form p{
+#deletar form p.msg-modal{
     background-color: #f5c518;
     padding: 8px 3px;
     color: #000;
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
+    transform: 1s;
+}
+#deletar form p.msg-modal:hover{
+    background-color: #000 ;
+     color: #f5c518; 
 }
 #deletar form .confirm-delete{
-    background-color: rgb(132, 243, 88);
-    width: 70px;
+    background-color: #0dcaf0;
+    width: 90px;
     padding: 5px;
     border-radius: 5px;
+    margin: 0 20px;
+    border: none;
+    font-weight: bold;
 }
 #deletar form .cancel-delete{
     background-color: rgb(247, 72, 72);
-    width: 70px;
+    width: 90px;
     padding: 5px;
     border-radius: 5px;
+    margin: 0 20px;
+    border: none;
+    font-weight: bold;
 }

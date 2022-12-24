@@ -30,11 +30,11 @@ if ($movie->image == "") {
 $userOwnsMovie = false;
 
 if (!empty($userData)) {
-    if ($userData->id === $movie->id) {
+    if ($userData->id === $movie->users_id) {
         $userOwnsMovie = true;
     }
 }
-$alreadyReviewed = false;
+$alreadyReviewed = true;
 ?>
 <div id="main-container" class="container-fluid">
     <div class="row">
@@ -58,7 +58,7 @@ $alreadyReviewed = false;
                 </p>
         </div>
         <div class="col-md-4">
-            <div class="movie-image-container"
+            <div class="movie-image-container" 
                 style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image ?>')"></div>
         </div>
         <div class="offset-md-1 col-md-10" id="reviews-container">

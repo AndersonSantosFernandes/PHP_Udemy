@@ -55,7 +55,7 @@ $userMovies = $movieDao->getMoviesByUserId($id);
                 <?php else: ?>
                 <p class="profile-description">O usuário ainda não escreveu sobre sí</p>
                 <?php endif; ?>
-
+ 
             </div>
 
             <div class="col-md-12 added-movies-container">

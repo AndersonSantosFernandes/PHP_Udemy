@@ -103,7 +103,7 @@
     
                 $movieData = $stmt->fetch();
 
-            $movie = $this->buildMovie($movieData);
+                $movie = $this->buildMovie($movieData);
 
             return $movie;
     
@@ -168,7 +168,7 @@
 
         $stmt->execute();
 
-        $this->message->setMessage("Filme deletado com sucesso", "success", "dashboard.php");
+        $this->message->setMessage("Filme deletado com sucesso com id = $id", "success", "dashboard.php");
         }
 
     }
