@@ -449,6 +449,16 @@ background-color: #333;
     margin: 30px 0;
 }
 
+
+/*Search*/
+#search-title{
+    font-size: 40px;
+}
+#search-result, 
+.back-link{
+    color: #f5c518;
+}
+
 /*Modal*/
 #deletar form{
     width: 300px;

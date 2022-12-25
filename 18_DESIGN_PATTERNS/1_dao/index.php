@@ -28,7 +28,7 @@
         <input type="text" name="km" placeholder="Insira a kilometragem" required>
     </div>
     <div>
-        <label for="color">Marca do carro</label>
+        <label for="color">Cor do carro</label>
         <input type="text" name="color" placeholder="Insira a cor" required>
     </div>
     <input type="submit" value="Salvar">
