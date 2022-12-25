@@ -10,7 +10,7 @@ require_once("dao/MovieDAO.php");
 require_once("dao/ReviewDAO.php");
 
 $message = new Message($BASE_URL);
-$userDao = new UserDAO($conn, $BASE_URL); 
+$userDao = new UserDAO($conn, $BASE_URL);
 $movieDao = new MovieDAO($conn, $BASE_URL);
 $reviewDao = new ReviewDAO($conn, $BASE_URL);
 
@@ -32,29 +32,23 @@ if ($type === "create") {
     $movieData = $movieDao->findById($movies_id);
 
     // Validando se o filme existe
-    if($movieData){
+    if ($movieData) {
         // verificar dados mínimos
-        if(!empty($rating) && !empty($review) && !empty($movies_id) ){
-
+        if (!empty($rating) && !empty($review) && !empty($movies_id)) {
             $reviewObject->rating = $rating;
             $reviewObject->review = $review;
             $reviewObject->movies_id = $movies_id;
             $reviewObject->users_id = $users_id;
-
             $reviewDao->create($reviewObject);
 
-        }else{
-        $message->setMessage("Insira a nota e o comentário para prosseguir.", "error", "back");
-
+        } else {
+            $message->setMessage("Insira a nota e o comentário para prosseguir.", "error", "back");
         }
-
-    }else{
+    } else {
         $message->setMessage("Informações inválidas.", "error", "index.php");
     }
-
-}else{
+} else {
     $message->setMessage("Informações inválidas.", "error", "index.php");
-
 }
 
 ?>

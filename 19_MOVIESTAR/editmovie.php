@@ -75,7 +75,8 @@ if ($movie->image == "") {
           </div>
           <div class="form-group">
             <label for="trailerdescription">Descrição</label>
-            <textarea name="description" id="description" rows="5" class="form-control"><?=$movie->description?></textarea>
+            <textarea name="description" id="description" rows="5"
+              class="form-control"><?= $movie->description ?></textarea>
           </div>
           <input type="submit" class="btn card-btn" value="Atualizar filme">
         </form>

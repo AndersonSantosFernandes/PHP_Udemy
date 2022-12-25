@@ -9,7 +9,7 @@ $fullName = $userModel->getFulName($review->user);
 //Checar se o usuário tem imagem
 if ($review->user->image == "") {
     $review->user->image = "user1.png";
-  }
+}
 
 
 ?>
@@ -22,7 +22,7 @@ if ($review->user->image == "") {
         </div>
         <div class="col-md-9 author-details-container">
             <h4 class="author-name">
-                <a href="#"><?= $fullName ?></a>
+                <a href="<?= $BASE_URL ?>profile.php?id=<?= $review->user->id ?>"><?= $fullName ?></a>
             </h4>
             <p><i class="fas fa-star"></i><?= $review->rating ?></p>
         </div>

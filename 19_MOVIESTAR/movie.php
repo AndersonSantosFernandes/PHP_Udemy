@@ -63,14 +63,15 @@ $movieReviews = $reviewDao->getMoviesReview($id);
                     <?= $movie->category ?>
                 </span>
                 <span class="pipe"></span>
-                <span><i class="fas fa-star">9</i></span>
+                <span><i class="fas fa-star"><?=" ". $movie->rating ?></i></span>
             </p>
             <?= $movie->trailer ?>
             <p>
                 <?= $movie->description ?>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-3" style="padding-top: 55px">
             <div class="movie-image-container"
                 style="background-image: url('<?= $BASE_URL ?>/img/movies/<?= $movie->image ?>')"></div>
         </div>
