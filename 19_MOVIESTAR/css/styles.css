@@ -384,6 +384,10 @@ padding-top: 20px;
    border: none; 
 }
 
+#acoes-col{
+    width: 20%;
+}
+
 .edit-btn{
     background-color: #0dcaf0;
     color: #fff;
@@ -460,13 +464,20 @@ background-color: #333;
 }
 
 /*Modal*/
+
+
+#deletar{
+    position: sticky;/*position sticky faz o elemento estar sempre a mostra quando rolamos a tela para baixo*/
+    top: 100px;
+    z-index: 30;
+}
 #deletar form{
     width: 300px;
     height: 150px;
     border: 2px solid #333;
     position: absolute;
     text-align: center;
-    top: 17%;
+    top: 0px;
     left: 35%;
     background-color: #333;
     border-radius: 5px;
@@ -481,7 +492,7 @@ background-color: #333;
     border-top-right-radius: 5px;
     transform: 1s;
 }
-#deletar form p.msg-modal:hover{
+#deletar form p .msg-modal:hover{
     background-color: #000 ;
      color: #f5c518; 
 }
@@ -506,7 +517,7 @@ background-color: #333;
 
 /*Responsividade*/
 
-@media(max-width: 510px){
+@media(max-width: 501px){
     #main-container{
         padding: 20px;
     }
@@ -528,7 +539,7 @@ background-color: #333;
     .movies-container{
         padding: 0 15px;
     }
-    .movie-card{
+    .movies-container .movie-card{
         width: 100%;
     }
 
@@ -586,6 +597,10 @@ background-color: #333;
         margin-bottom: 10px;
     }
 
+    .ocult{
+        display: none;
+    }
+
     /*Edit movie*/
     .movie-image-container{
         margin-top: 1rem;
@@ -593,6 +608,10 @@ background-color: #333;
 
     .fas.fa-bars{
         color: #f5c518;
+    }
+
+    #acoes-col{
+        width: 30%;
     }
 
 }

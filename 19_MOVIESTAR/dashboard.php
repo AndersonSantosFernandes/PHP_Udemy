@@ -30,6 +30,10 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
 
   </div>
 
+  <div id="deletar">
+   
+  </div>
+
   <div class="col-md-12" id="movies-dashboard">
     <table class="table">
       <thead>
@@ -48,16 +52,16 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
               <?= $movie->title ?>
             </a></td>
           <td><i class="fas fa-star"><?= $movie->rating ?></i></td>
-          <td class="actions-column">
+          <td class="actions-column" id="acoes-col">
             <a href="<?= $BASE_URL ?>editmovie.php?id=<?= $movie->id ?>" class="edit-btn">
-              <i class="far fa-edit"> </i>Editar
+              <i class="far fa-edit ocult"> </i>Editar
             </a>
             <!-- <form action="<?= $BASE_URL ?>movie_process.php" method="POST"> -->
             <!-- <input type="hidden" name="type" value="delete">
             <input type="hidden" name="id" value="<?= $movie->id ?>"> -->
             <!-- <input type="button" value="Deletar" class="delete-btn"  onclick="showDelete(<?= $movie->id ?>)"> -->
             <button class="delete-btn" onclick="showDelete(<?= $movie->id ?>)">
-              <i class="fas fa-times"></i>Deletar
+              <i class="fas fa-times ocult"></i>Deletar
             </button>
             <!-- </form> -->
           </td>
@@ -66,9 +70,7 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
       </tbody>
     </table>
   </div>
-  <div id="deletar">
-   
-  </div>
+  
 
 
 
