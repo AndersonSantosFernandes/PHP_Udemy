@@ -37,10 +37,10 @@ h1{
     $cincodias = strtotime("5 days");
     echo $cincodias . "<br>";
 
-    $dezdias = strtotime("3 months");
+    $dezdias = strtotime("10 days");
     echo $dezdias . "<br>";
 
-    $nascimento = strtotime("-44 years");
+    $nascimento = strtotime("-45 years");
     $nasc2 = date('d/m/Y', $nascimento);
 
     echo $nascimento . "<br>";

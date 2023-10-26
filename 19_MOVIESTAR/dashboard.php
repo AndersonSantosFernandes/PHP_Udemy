@@ -37,7 +37,7 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
   <div class="col-md-12" id="movies-dashboard">
     <table class="table">
       <thead>
-        <th scope="col">#</th>
+        <th scope="col" class="dash-no">#</th>
         <th scope="col">Título</th>
         <th scope="col">Nota</th>
         <th scope="col" class="actions-column">Ações</th>
@@ -45,7 +45,7 @@ $userMovies = $movieDao->getMoviesByUserId($userData->id);
       <tbody>
         <?php foreach ($userMovies as $movie): ?>
         <tr>
-          <td scope="row">
+          <td scope="row" class="dash-no">
             <?= $movie->id ?>
           </td>
           <td><a href="<?= $BASE_URL ?>movie.php?id=<?= $movie->id ?>" class="table-movie-title">

@@ -329,14 +329,16 @@ padding-top: 20px;
     color: #999;
 }
 
-
-
-
-
-
-
-
-
+/*scrollbar*/
+::-webkit-scrollbar{
+    background-image: linear-gradient(#333, #777, #333);
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+    background-image: linear-gradient( #333, #f5c518, #333 );
+    width: 15px;
+    border: 1px solid purple;
+}
 
 /* Dashboard */
 #add-movie-container{
@@ -469,7 +471,7 @@ background-color: #333;
 #deletar{
     position: sticky;/*position sticky faz o elemento estar sempre a mostra quando rolamos a tela para baixo*/
     top: 100px;
-    z-index: 30;
+    z-index: 3;
 }
 #deletar form{
     width: 300px;
@@ -518,6 +520,22 @@ background-color: #333;
 /*Responsividade*/
 
 @media(max-width: 501px){
+    #deletar{
+        position: sticky;/*position sticky faz o elemento estar sempre a mostra quando rolamos a tela para baixo*/
+        top: 30px;
+        z-index: 3;
+    }
+
+    #deletar form{
+        position: absolute;
+        left: 8%;
+        background-color: rgba(51, 51, 51, 0.85);
+    }
+
+    .dash-no{
+        display: none;
+    }
+
     #main-container{
         padding: 20px;
     }

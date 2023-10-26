@@ -14,7 +14,7 @@ if ($userData->image == "") {
 }
 ?>
 <div id="main-container" class="container-fluid">
-  <div class="col-md-12">
+  <div class="col-md-12 ">
     <form action="<?= $BASE_URL ?>user_process.php" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="type" value="update">
       <div class="row">

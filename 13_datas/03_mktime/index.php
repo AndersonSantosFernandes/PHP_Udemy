@@ -33,9 +33,10 @@ h1{
     <h1>Título</h1>
     <div id="main">
     <?php
+        $asd = mktime(strtotime("0 days"));
         $nascimento = mktime(11,25,15,10,18,1978);
         echo $nascimento . "<br>";
-        $formatada = date('d/m/Y', $nascimento);
+        $formatada = date('d/m/Y h:m:s', $asd);
         echo $formatada. "<br>";
 
     

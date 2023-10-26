@@ -133,7 +133,7 @@ class MovieDAO implements MovieDAOInterface
     {
         $movies = [];
         $stmt = $this->conn->prepare("SELECT * FROM movies WHERE title LIKE :title");
-        $stmt->bindValue(":title", '%'.$title.'%');
+        $stmt->bindValue(":title", '%' . $title . '%');
 
         $stmt->execute();
 
@@ -198,6 +198,23 @@ class MovieDAO implements MovieDAOInterface
     }
     public function destroy($id)
     {
+
+        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE movies_id = :movies_id");
+
+        $stmt->bindParam(":movies_id", $id);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+
+            $stmt = $this->conn->prepare("DELETE FROM reviews WHERE movies_id = :movies_id");
+
+            $stmt->bindParam(":movies_id", $id);
+
+            $stmt->execute();
+
+        }
+
 
         $stmt = $this->conn->prepare("DELETE FROM movies WHERE id = :id");
 

@@ -15,7 +15,7 @@ class Message{
 
         // print_r($msg);
         if($redirect != "back"){
-            header("Location: $this->url" . $redirect);
+            header("Location: $this->url" . $redirect); 
         }
         else
         {
