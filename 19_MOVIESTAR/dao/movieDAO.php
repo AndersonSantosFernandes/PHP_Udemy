@@ -51,6 +51,7 @@ class MovieDAO implements MovieDAOInterface
         $movies = [];
 
         $stmt = $this->conn->query("SELECT * FROM movies ORDER BY id DESC");
+        // $stmt = $this->conn->query("SELECT * FROM movies ORDER BY id DESC");
 
         $stmt->execute();
 
